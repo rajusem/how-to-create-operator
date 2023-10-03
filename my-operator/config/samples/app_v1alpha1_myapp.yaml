@@ -1,0 +1,16 @@
+apiVersion: app.example.com/v1alpha1
+kind: MyApp
+metadata:
+  labels:
+    app.kubernetes.io/name: myapp
+    app.kubernetes.io/instance: myapp-sample
+    app.kubernetes.io/part-of: my-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: my-operator
+  name: myapp-sample
+spec:
+  namespace: "my-sample-ns"
+  cronjobconfig:
+    name: "my-sample-cronjob"
+    schedule: "*/5 * * * *"
+    image: "rajusem/sample-python-app:latest"
